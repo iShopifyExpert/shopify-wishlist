@@ -1,4 +1,4 @@
-# SHOPIFY WISHLIST
+# SHOPIFY WISHLIST HEART
 
 A set of Shopify files used to implement a user wishlist on a Shopify store using (S)CSS, Javascript, and Liquid. This implementation uses javascript's localStorage to maintain a user's product wishlist and does not require a user to be logged in to a customer account.
 
