@@ -13,6 +13,7 @@
    */   
   var animateWishlist = function (self) {
     $(self).toggleClass('is-active');
+    $(self).find('i').toggleClass('fa-heart-o fa-heart');
   };
 
   /*
@@ -46,7 +47,7 @@
     $wishlistButton.each(function () {
       var productHandle = $(this).attr('data-product-handle');
       if (wishlist.indexOf(productHandle) > -1) {
-        $(this).addClass('is-active');
+        $(this).addClass('is-active').html('<i class="fa fa-heart"></i>');
       }
     });
   };
