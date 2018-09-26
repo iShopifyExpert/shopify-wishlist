@@ -18,7 +18,7 @@ NOTE: These files relay on jQuery being included in you theme.liduid before the 
 ## Usage
 
 To begin using the Shopify Wishlist copy the following files into your project directory:
-* assets/Wishlist.js
+* assets/wishlist.js
 * templates/page.wishlist.liquid
 * snippets/product-tile.liquid
 * snippets/wishlist-button.liquid
@@ -27,7 +27,7 @@ You must initalize the **Wishlist.js** module at the bottom of your *theme.liqui
 
 ```
 <!-- Footer Scripts ================================ -->
-{{ 'Wishlist.js' | asset_url | script_tag }}
+{{ 'wishlist.js' | asset_url | script_tag }}
 <script>
   (function() {
     Wishlist.init();
@@ -40,13 +40,13 @@ You must initalize the **Wishlist.js** module at the bottom of your *theme.liqui
 In order to add a product to a user's wishlist, there must be an element with a class of **wishlist-btn** and a data attribute **data-product-handle** that contains the handle of the product to be added. This can be found in the **wishlist-button.liquid** snippet file.
 
 ```
-<div class="wishlist-btn" data-product-handle="{{ product.handle }}">Add To Wishlist</div>
+<div class="wishlist-btn" data-product-handle="{{ product.handle }}"><i class="fa fa-heart"></i> Add To Wishlist</div>
 ```
 
 On click, the wishlist-button element will have the class **is-active** added. The product handle from the element will be pushed to an array, converted to localStorage and saved. If a user clicks on a wishlist-button that is currently active, it will remove the corresponding product handle from the localStorage array, and remove the **is-active** class from that button.
 
 ```
-<div class="wishlist-btn is-active" data-product-handle="{{ product.handle }}">Add To Wishlist</div>
+<div class="wishlist-btn is-active" data-product-handle="{{ product.handle }}"><i class="fa fa-heart"></i> Add To Wishlist</div>
 ```
 
 ### Mark Active Wishlist Items
@@ -56,7 +56,7 @@ Any time a page is loaded, the **Wishlist.js** file will scan the page for any w
 ```
 var wishlist = localStorage.getItem('user_wishlist')
 if (wishlist.indexOf(productHandle) > -1) {
-  $(this).addClass('is-active');
+  $(this).addClass('is-active').html('<i class="fa fa-heart"></i>');
 }
 ```
 
